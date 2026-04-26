@@ -1,6 +1,6 @@
 from src.file_manager import FileManager
 from src.validator import Validator
-from src.backtracking_solver import BacktrackingSolver
+from src.solver_factory import SolverFactory
 
 
 def main():
@@ -17,7 +17,7 @@ def main():
     print(Validator.is_board_valid(board))
     print()
 
-    solver = BacktrackingSolver()
+    solver = SolverFactory.create_solver("backtracking")
     solved = solver.solve(board)
 
     if solved:
