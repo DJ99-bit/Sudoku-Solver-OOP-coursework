@@ -1,4 +1,5 @@
 from src.board import SudokuBoard
+from src.validator import Validator
 
 
 def main():
@@ -13,6 +14,14 @@ def main():
 
     print("Current board:")
     print(board)
+    print()
+
+    print("Is the whole board valid?")
+    print(Validator.is_board_valid(board))
+    print()
+
+    print("Can we place 2 at row 0, col 1?")
+    print(Validator.is_valid_move(board, 0, 1, 2))
 
 
 if __name__ == "__main__":
