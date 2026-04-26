@@ -1,17 +1,13 @@
-from src.board import SudokuBoard
+from src.file_manager import FileManager
 from src.validator import Validator
 from src.backtracking_solver import BacktrackingSolver
 
 
 def main():
-    board = SudokuBoard([
-        [1, 2, 0, 4, 5, 6],
-        [4, 0, 6, 1, 2, 3],
-        [2, 3, 4, 5, 0, 1],
-        [5, 6, 1, 0, 3, 4],
-        [3, 4, 0, 6, 1, 2],
-        [6, 1, 2, 3, 4, 0]
-    ])
+    input_file = "data/puzzle.txt"
+    output_file = "data/solution.txt"
+
+    board = FileManager.load_board(input_file)
 
     print("Original board:")
     print(board)
@@ -27,6 +23,8 @@ def main():
     if solved:
         print("Solved board:")
         print(board)
+        FileManager.save_board(board, output_file)
+        print(f"\nSolved board saved to {output_file}")
     else:
         print("No solution found.")
 
