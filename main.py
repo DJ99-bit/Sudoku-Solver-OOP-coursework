@@ -1,27 +1,34 @@
 from src.board import SudokuBoard
 from src.validator import Validator
+from src.backtracking_solver import BacktrackingSolver
 
 
 def main():
     board = SudokuBoard([
-        [1, 0, 0, 4, 0, 6],
-        [0, 5, 6, 0, 2, 0],
-        [2, 0, 0, 5, 0, 1],
-        [0, 1, 3, 0, 6, 0],
-        [3, 0, 1, 6, 0, 2],
-        [0, 6, 5, 0, 1, 0]
+        [1, 2, 0, 4, 5, 6],
+        [4, 0, 6, 1, 2, 3],
+        [2, 3, 4, 5, 0, 1],
+        [5, 6, 1, 0, 3, 4],
+        [3, 4, 0, 6, 1, 2],
+        [6, 1, 2, 3, 4, 0]
     ])
 
-    print("Current board:")
+    print("Original board:")
     print(board)
     print()
 
-    print("Is the whole board valid?")
+    print("Is the board valid?")
     print(Validator.is_board_valid(board))
     print()
 
-    print("Can we place 2 at row 0, col 1?")
-    print(Validator.is_valid_move(board, 0, 1, 2))
+    solver = BacktrackingSolver()
+    solved = solver.solve(board)
+
+    if solved:
+        print("Solved board:")
+        print(board)
+    else:
+        print("No solution found.")
 
 
 if __name__ == "__main__":
