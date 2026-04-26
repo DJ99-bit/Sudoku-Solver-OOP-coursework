@@ -32,8 +32,7 @@ Results
 - the backtracking algorithm solves valid sudoku boards
 - the solved board is displayed and saved to an output file
 
-Conclusions
-This coursework resulted in a working 6x6 sudoku solver written in Python. The project applies OOP principles, uses a design pattern, supports file input and output, includes unit tests.
+Conclusions: this coursework resulted in a working 6x6 sudoku solver written in Python. The project applies OOP principles, uses a design pattern, supports file input and output, includes unit tests.
 
 Future improvements:
 - support for different sudoku sizes
